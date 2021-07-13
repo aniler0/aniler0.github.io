@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { socialmediaicons } from "../utils/socialmedia";
 import SocialMediaLinks from "./SocialMediaLinks";
 
-const Contact = () => {
+const Contact = ({ socialmediaicons }) => {
   return (
     <ContactContainer>
       <ContactWrapper>
@@ -25,7 +24,7 @@ const Contact = () => {
           </FormSection>
         </ContactSection>
 
-        <SocialMediaLinks />
+        <SocialMediaLinks socialmediaicons={socialmediaicons} />
       </ContactWrapper>
       <Footer>
         <h1>

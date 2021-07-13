@@ -1,4 +1,4 @@
-export const icons = [
+const icons = [
 
 
     {
@@ -26,3 +26,5 @@ export const icons = [
         alt: "nextjs-icon"
     }
 ]
+
+export default icons;

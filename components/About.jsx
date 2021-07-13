@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { icons } from "../utils/icons";
 
-const About = () => {
+const About = ({ icons }) => {
   return (
     <>
       <Container>
@@ -23,11 +22,13 @@ const About = () => {
               <br />
               <Logos>
                 {icons.map((icon, key) => (
-                  <Logo
+                  <Image
                     key={key}
                     src={icon.name}
                     alt={icon.alt}
-                    layout="fill"
+                    width={60}
+                    height={60}
+                    layout="intrinsic"
                   />
                 ))}
               </Logos>
@@ -101,11 +102,12 @@ const Logos = styled.div`
     width: 100%;
     align-items: center;
     flex-wrap: wrap;
+
+    & img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
-`;
-const Logo = styled.img`
-  width: 9vmin;
-  height: 9vmin;
 `;
 
 const ProfilePhoto = styled.img`

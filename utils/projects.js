@@ -1,4 +1,4 @@
-export const projects = [
+const projects = [
     {
         id: '1',
         projectName: 'Google Clone',
@@ -49,3 +49,5 @@ export const projects = [
     },
 
 ]
+
+export default projects;

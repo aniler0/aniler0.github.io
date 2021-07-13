@@ -1,25 +1,51 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import Link from "next/link";
+import { Link } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
+import Sidebar from "./Sidebar";
 
 const Navbar = () => {
+  const [scrollNav, setScrollNav] = useState(false);
+
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else setScrollNav(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
+
   return (
-    <Nav>
+    <Nav scrollNav={scrollNav}>
       <NavContainer>
         <Title>aniler</Title>
         <NavLinks>
-          <Link href="/" passHref>
-            <NavLink>Home</NavLink>
-          </Link>
-          <Link href="/projects" passHref>
-            <NavLink>Projects</NavLink>
-          </Link>
-          <Link href="/about" passHref>
-            <NavLink>About</NavLink>
-          </Link>
+          <NavLink>
+            <Link to="home" spy={true} smooth={true}>
+              Home
+            </Link>
+          </NavLink>
+          <NavLink>
+            <Link to="about" spy={true} smooth={true}>
+              About
+            </Link>
+          </NavLink>
+
+          <NavLink>
+            <Link to="projects" spy={true} smooth={true}>
+              Projects
+            </Link>
+          </NavLink>
+
+          <NavLink>
+            <Link to="contact" spy={true} smooth={true}>
+              <h4>Contact</h4>
+            </Link>
+          </NavLink>
         </NavLinks>
-        <NavBars />
+        <SidebarIcon />
       </NavContainer>
     </Nav>
   );
@@ -35,7 +61,13 @@ const Nav = styled.nav`
   height: 60px;
   width: 100%;
   z-index: 100;
-  background-color: transparent;
+  transition: 300ms ease-in;
+  ${({ scrollNav }) =>
+    scrollNav === true
+      ? `
+    background: white;
+  `
+      : `background:transparent;`}
 `;
 const Title = styled.h1`
   font-size: medium;
@@ -44,24 +76,22 @@ const Title = styled.h1`
   color: #000000;
   user-select: none;
 `;
-
-const NavLinks = styled.div`
-  //navmenu
-  display: flex;
-  justify-content: space-evenly;
-  width: calc(12em + 3vw);
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const NavBars = styled(CgMenuRight)`
+const SidebarIcon = styled(CgMenuRight)`
   display: none;
   @media screen and (max-width: 768px) {
     display: block;
     width: 25px;
     height: 25px;
+  }
+`;
+const NavLinks = styled.ul`
+  //navmenu
+  display: flex;
+  justify-content: space-evenly;
+  width: calc(15em + 3vw);
+
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -71,13 +101,15 @@ const NavContainer = styled.div`
   align-items: center;
   width: 90%;
 `;
-const NavLink = styled.a`
+const NavLink = styled.li`
   display: flex;
+  cursor: pointer;
   align-items: center;
   color: #000000;
   text-decoration: none;
   font-weight: 400;
   font-size: small;
+
   &:hover {
     color: white;
   }

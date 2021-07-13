@@ -1,4 +1,4 @@
-export const socialmediaicons = [
+const socialmediaicons = [
 
     {
         name: "/socialmedia/linkedin-icon.svg",
@@ -17,3 +17,5 @@ export const socialmediaicons = [
         alt: "twitter-icon"
     }
 ]
+
+export default socialmediaicons;

@@ -1,9 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Slider from "react-slick";
-import { projects } from "../utils/projects";
 
-const Projects = () => {
+const Projects = ({ projects }) => {
   const settings = {
     dots: true,
     infinite: true,
