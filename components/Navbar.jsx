@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
-import Sidebar from "./Sidebar";
+import { AiOutlineClose } from "react-icons/ai";
 
-const Navbar = () => {
+const Navbar = ({ toggleMenu, setToggleMenu }) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
@@ -13,6 +13,10 @@ const Navbar = () => {
     } else setScrollNav(false);
   };
 
+  const isToggle = () => {
+    setToggleMenu(!toggleMenu);
+    console.log(toggleMenu);
+  };
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
@@ -45,7 +49,11 @@ const Navbar = () => {
             </Link>
           </NavLink>
         </NavLinks>
-        <SidebarIcon />
+        {toggleMenu === false ? (
+          <CloseIcon onClick={() => isToggle()} />
+        ) : (
+          <SideBarIcon onClick={() => isToggle()} />
+        )}
       </NavContainer>
     </Nav>
   );
@@ -76,12 +84,24 @@ const Title = styled.h1`
   color: #000000;
   user-select: none;
 `;
-const SidebarIcon = styled(CgMenuRight)`
+const SideBarIcon = styled(CgMenuRight)`
   display: none;
   @media screen and (max-width: 768px) {
     display: block;
     width: 25px;
     height: 25px;
+    cursor: pointer;
+    transition: 300ms ease-in;
+  }
+`;
+const CloseIcon = styled(AiOutlineClose)`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: 300ms ease-in;
   }
 `;
 const NavLinks = styled.ul`
@@ -92,6 +112,7 @@ const NavLinks = styled.ul`
 
   @media screen and (max-width: 768px) {
     display: none;
+    cursor: pointer;
   }
 `;
 

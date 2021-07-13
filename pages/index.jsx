@@ -1,3 +1,4 @@
+import { useState } from "react";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Home from "../components/Home";
@@ -10,11 +11,12 @@ import projects from "../utils/projects";
 import socialmediaicons from "../utils/socialmedia";
 
 export default function HomePage() {
+  const [toggleMenu, setToggleMenu] = useState(true);
   return (
     <>
       <GlobalStyle />
-      <Navbar />
-      <Sidebar />
+      <Navbar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+      <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       <Home />
       <About icons={icons} />
       <Projects projects={projects} />
