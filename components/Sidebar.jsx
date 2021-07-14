@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 
 const Sidebar = ({ toggleMenu, setToggleMenu }) => {
+  const variants = {
+    open: { x: "200%" },
+    closed: { x: 0 },
+  };
+
   return (
     <SideBarContainer
+      animate={toggleMenu === true ? "open" : "closed"}
+      variants={variants}
       toggleMenu={toggleMenu}
       onClick={() => setToggleMenu(false)}
     >
@@ -40,7 +48,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu }) => {
 
 export default Sidebar;
 
-const SideBarContainer = styled.div`
+const SideBarContainer = styled(motion.div)`
   display: none;
   @media screen and (max-width: 768px) {
     position: fixed;
@@ -63,7 +71,7 @@ const SideBarContainer = styled.div`
   }
 `;
 
-const SideBarWrapper = styled.div`
+const SideBarWrapper = styled(motion.div)`
   height: 100%;
   display: flex;
   flex-direction: column;

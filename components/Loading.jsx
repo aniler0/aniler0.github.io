@@ -3,34 +3,26 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const Loading = ({ setLoading }) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-    return () => {
-      clearTimeout(timer);
-    };
-  });
-
   const item = {
     hidden: {
       opacity: 0,
-      y: 200,
+      y: 0,
     },
     show: {
       opacity: 1,
       y: 0,
       transition: {
         ease: [0.6, 0.01, -0.05, 0.95],
-        duration: 1.6,
+        duration: 3.5,
       },
     },
     exit: {
+      scale: 7,
       opacity: 0,
-      y: -200,
       transition: {
-        ease: "easeInOut",
-        duration: 0.8,
+        ease: "easeIn",
+        duration: 1,
+        delay: 0.5,
       },
     },
   };
@@ -42,9 +34,10 @@ const Loading = ({ setLoading }) => {
         animate="show"
         initial="hidden"
         exit="exit"
+        onAnimationComplete={() => setLoading(false)}
       >
         <Loader />
-        <h1>LOADING</h1>
+        <motion.h1 variants={item}>LOADING</motion.h1>
       </LoaderWrapper>
     </Container>
   );

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
@@ -15,7 +16,9 @@ const Hero = () => {
         />
         <Main>
           <Header>
-            Hello <br /> <span> I&apos;m Anıl</span> <br /> Frontend Developer
+            Hello <br />
+            <span>I&apos;m Anıl</span>
+            <br /> Frontend Developer
           </Header>
         </Main>
         <Bottom>

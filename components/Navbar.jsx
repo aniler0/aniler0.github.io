@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const Navbar = ({ toggleMenu, setToggleMenu }) => {
   const [scrollNav, setScrollNav] = useState(false);
