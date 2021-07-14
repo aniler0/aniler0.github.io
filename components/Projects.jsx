@@ -37,6 +37,7 @@ const Projects = ({ projects }) => {
                           alt="image"
                           width={300}
                           height={150}
+                          priority={true}
                         />
                         <a href={project.liveProject}>Live</a>
                       </ImageArea>

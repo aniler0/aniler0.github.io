@@ -28,6 +28,7 @@ const About = ({ icons }) => {
                     alt={icon.alt}
                     width={60}
                     height={60}
+                    priority={true}
                     layout="intrinsic"
                   />
                 ))}
