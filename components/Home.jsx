@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-scroll";
 import styled from "styled-components";
 
 const Hero = () => {
@@ -63,7 +64,10 @@ const Hero = () => {
           </Header>
         </Main>
         <Bottom>
-          <h1>Scroll Down</h1>
+          <Link to="about" spy={true} smooth={true} duration={50}>
+            Scroll Down
+          </Link>
+
           <ScrollImage src="/scroll-down.svg" />
         </Bottom>
       </Container>
@@ -156,7 +160,7 @@ const Bottom = styled.div`
     }
   }
 
-  & h1 {
+  & a {
     font-size: small;
     font-weight: 500;
     user-select: none;

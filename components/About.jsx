@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const About = ({ icons }) => {
   return (
@@ -22,15 +23,21 @@ const About = ({ icons }) => {
               <br />
               <Logos>
                 {icons.map((icon, key) => (
-                  <Image
+                  <motion.div
                     key={key}
-                    src={icon.name}
-                    alt={icon.alt}
-                    width={60}
-                    height={60}
-                    priority={true}
-                    layout="intrinsic"
-                  />
+                    whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Image
+                      key={key}
+                      src={icon.name}
+                      alt={icon.alt}
+                      width={60}
+                      height={60}
+                      priority={true}
+                      layout="intrinsic"
+                    />
+                  </motion.div>
                 ))}
               </Logos>
             </Section2>

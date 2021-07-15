@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const Projects = ({ projects }) => {
   const settings = {
@@ -12,6 +14,11 @@ const Projects = ({ projects }) => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
+
+  useEffect(() => {
+    console.log("proje sayfası");
+  });
+
   return (
     <>
       <Container id="projects">
