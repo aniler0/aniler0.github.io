@@ -4,7 +4,7 @@ import Image from "next/image";
 const About = ({ icons }) => {
   return (
     <>
-      <Container>
+      <Container id="about">
         <AboutSections>
           <Paragraph>
             <Section1>

@@ -14,7 +14,7 @@ const Projects = ({ projects }) => {
   };
   return (
     <>
-      <Container>
+      <Container id="projects">
         <BgImage>
           <Image src="/bgimage.png" alt="clay" width={1000} height={600} />
         </BgImage>

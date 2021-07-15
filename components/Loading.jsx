@@ -3,6 +3,14 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const Loading = ({ setLoading }) => {
+  const container = {
+    show: {
+      transition: {
+        staggerChildren: 0.35,
+      },
+    },
+  };
+
   const item = {
     hidden: {
       opacity: 0,
@@ -17,7 +25,6 @@ const Loading = ({ setLoading }) => {
       },
     },
     exit: {
-      scale: 7,
       opacity: 0,
       transition: {
         ease: "easeIn",
@@ -30,10 +37,10 @@ const Loading = ({ setLoading }) => {
   return (
     <Container>
       <LoaderWrapper
-        variants={item}
-        animate="show"
-        initial="hidden"
-        exit="exit"
+        variants={container}
+        animate={item.show}
+        initial={item.hidden}
+        exit={item.exit}
         onAnimationComplete={() => setLoading(false)}
       >
         <Loader />

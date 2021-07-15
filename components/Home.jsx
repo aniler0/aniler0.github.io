@@ -3,8 +3,46 @@ import React from "react";
 import styled from "styled-components";
 
 const Hero = () => {
+  const bgvideo = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 4,
+        delay: 1.5,
+        ease: [0.83, 0, 0.17, 1],
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 4,
+        delay: 1.5,
+        ease: [0.83, 0, 0.17, 1],
+      },
+    },
+  };
+
+  const text = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 1.4,
+        delay: 2,
+        ease: [0.83, 0, 0.17, 1],
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.2,
+        delay: 2,
+        ease: [0.83, 0, 0.17, 1],
+      },
+    },
+  };
+
   return (
-    <Section>
+    <Section id="home">
       <Container>
         <ContainerVideo
           src="/background.mp4"
@@ -13,9 +51,12 @@ const Hero = () => {
           loop
           muted
           playsInline
+          variants={bgvideo}
+          initial="hidden"
+          animate="visible"
         />
         <Main>
-          <Header>
+          <Header variants={text} initial="hidden" animate="visible">
             Hello <br />
             <span>I&apos;m Anıl</span>
             <br /> Frontend Developer
@@ -39,7 +80,7 @@ const Section = styled.div`
   overflow: hidden;
 `;
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +89,7 @@ const Container = styled.section`
   position: relative;
   overflow: hidden;
 `;
-const ContainerVideo = styled.video`
+const ContainerVideo = styled(motion.video)`
   position: absolute;
   top: 0;
   left: 0;
@@ -57,7 +98,7 @@ const ContainerVideo = styled.video`
   object-fit: cover;
 `;
 
-const Main = styled.div`
+const Main = styled(motion.div)`
   position: relative;
   z-index: 10;
   display: flex;
@@ -68,7 +109,7 @@ const Main = styled.div`
   width: calc(100% - 200px);
 `;
 
-const Header = styled.header`
+const Header = styled(motion.header)`
   text-align: center;
   font-size: 1.4em;
   font-weight: 400;

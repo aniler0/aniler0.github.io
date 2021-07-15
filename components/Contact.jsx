@@ -4,7 +4,7 @@ import SocialMediaLinks from "./SocialMediaLinks";
 
 const Contact = ({ socialmediaicons }) => {
   return (
-    <ContactContainer>
+    <ContactContainer id="contact">
       <ContactWrapper>
         <ContactSection>
           <Title>

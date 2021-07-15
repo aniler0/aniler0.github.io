@@ -101,6 +101,6 @@ const NavLink = styled.li`
     color: white;
   }
   & a {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 `;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
-import { motion } from "framer-motion";
 
 const Navbar = ({ toggleMenu, setToggleMenu }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -28,24 +28,24 @@ const Navbar = ({ toggleMenu, setToggleMenu }) => {
         <Title>aniler</Title>
         <NavLinks>
           <NavLink>
-            <Link to="home" spy={true} smooth={true}>
+            <Link to="home" spy={true} smooth={true} duration={50}>
               Home
             </Link>
           </NavLink>
           <NavLink>
-            <Link to="about" spy={true} smooth={true}>
+            <Link to="about" spy={true} smooth={true} duration={50}>
               About
             </Link>
           </NavLink>
 
           <NavLink>
-            <Link to="projects" spy={true} smooth={true}>
+            <Link to="projects" spy={true} smooth={true} duration={50}>
               Projects
             </Link>
           </NavLink>
 
           <NavLink>
-            <Link to="contact" spy={true} smooth={true}>
+            <Link to="contact" spy={true} smooth={true} duration={50}>
               <h4>Contact</h4>
             </Link>
           </NavLink>
