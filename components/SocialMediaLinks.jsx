@@ -9,14 +9,16 @@ const SocialMediaLinks = ({ socialmediaicons }) => {
       <SocialMedia>
         {socialmediaicons.map((icon, index) => {
           return (
-            <Image
-              key={index}
-              src={icon.name}
-              alt={icon.alt}
-              width={30}
-              height={30}
-              layout="intrinsic"
-            />
+            <a key={index} href={icon.webpage} target="_blank" rel="noreferrer">
+              <Image
+                key={index}
+                src={icon.name}
+                alt={icon.alt}
+                width={30}
+                height={30}
+                layout="intrinsic"
+              />
+            </a>
           );
         })}
       </SocialMedia>

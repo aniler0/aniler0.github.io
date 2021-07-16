@@ -9,7 +9,7 @@ const Hero = () => {
       opacity: 0,
       transition: {
         duration: 4,
-        delay: 1.5,
+        delay: 1.2,
         ease: [0.83, 0, 0.17, 1],
       },
     },
@@ -17,7 +17,7 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 4,
-        delay: 1.5,
+        delay: 1.2,
         ease: [0.83, 0, 0.17, 1],
       },
     },
@@ -28,7 +28,7 @@ const Hero = () => {
       opacity: 0,
       transition: {
         duration: 1.4,
-        delay: 2,
+        delay: 0.8,
         ease: [0.83, 0, 0.17, 1],
       },
     },
@@ -36,7 +36,7 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 1.2,
-        delay: 2,
+        delay: 0.8,
         ease: [0.83, 0, 0.17, 1],
       },
     },

@@ -14,11 +14,10 @@ const Loading = ({ setLoading }) => {
   const item = {
     hidden: {
       opacity: 0,
-      y: 0,
     },
     show: {
       opacity: 1,
-      y: 0,
+
       transition: {
         ease: [0.6, 0.01, -0.05, 0.95],
         duration: 3.5,

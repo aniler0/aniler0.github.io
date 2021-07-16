@@ -36,7 +36,13 @@ const Projects = ({ projects }) => {
                       <Details>
                         <h2>{project.projectName}</h2>
                         <h4>{project.projectDetails}</h4>
-                        <a href={project.githubLink}>Source Code</a>
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Source Code
+                        </a>
                       </Details>
                       <ImageArea>
                         <Image
@@ -46,7 +52,13 @@ const Projects = ({ projects }) => {
                           height={150}
                           priority={true}
                         />
-                        <a href={project.liveProject}>Live</a>
+                        <a
+                          href={project.liveProject}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Live
+                        </a>
                       </ImageArea>
                     </ProjectContainer>
                   </Wrap>

@@ -15,7 +15,7 @@ export default function HomePage() {
   const [toggleMenu, setToggleMenu] = useState(true);
   const [loading, setLoading] = useState(true);
   return (
-    <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
       {loading === true ? (
         <motion.div key="loader">
           <Loading setLoading={setLoading} />
