@@ -1,8 +1,50 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
 import SocialMediaLinks from "./SocialMediaLinks";
 
 const Contact = ({ socialmediaicons }) => {
+  const [name, setName] = useState("");
+  const [mail, setMail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(false);
+
+    const timer = setTimeout(() => {
+      setSubmitted(true);
+      setName("");
+      setMail("");
+      setMessage("");
+    }, 3000);
+
+    let data = {
+      name,
+      mail,
+      message,
+    };
+    fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log("response received");
+      if (res.status === 200) {
+        console.log("Response succeeded!");
+        setSubmitted(true);
+        setName("");
+        setMail("");
+        setBody("");
+      }
+    });
+
+    timer;
+  };
+
   return (
     <ContactContainer id="contact">
       <ContactWrapper>
@@ -14,10 +56,38 @@ const Contact = ({ socialmediaicons }) => {
 
           <FormSection>
             <Form>
-              <input type="text" placeholder="Name" />
-              <input type="email" name="email" placeholder="Enter e-mail" />
-              <textarea type="text" name="message" placeholder="Your Message" />
-              <Button>
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter e-mail"
+                value={mail}
+                onChange={(e) => {
+                  setMail(e.target.value);
+                }}
+              />
+              <textarea
+                type="text"
+                name="message"
+                placeholder="Your Message"
+                value={message}
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+              />
+              <Button
+                onClick={(e) => {
+                  handleSubmit(e);
+                }}
+                disabled={submitted === true ? false : true}
+              >
                 <h4>SUBMIT</h4>
               </Button>
             </Form>
@@ -123,6 +193,23 @@ const Button = styled.button`
     font-weight: 500;
     font-size: small;
   }
+
+  ${({ disabled }) =>
+    disabled
+      ? css`
+          background-color: #cccccc;
+
+          & h4 {
+            color: #666666;
+          }
+        `
+      : css`
+          cursor: pointer;
+          border: none;
+          & h4 {
+            color: black;
+          }
+        `}
 `;
 const Footer = styled.div`
   position: absolute;

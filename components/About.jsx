@@ -17,8 +17,19 @@ const About = ({ icons }) => {
                 frontend side. I am currently enrolled at Suleyman Demirel
                 University for four years.
               </p>
+              <br />
             </Section1>
             <Section2>
+              <h1>Resume</h1>
+
+              <ButtonContainer>
+                <a href="/Resume.pdf" download>
+                  <ResumeButton>Click to download</ResumeButton>
+                </a>
+              </ButtonContainer>
+            </Section2>
+
+            <Section3>
               <h1>I&apos;m Good At</h1>
               <br />
               <Logos>
@@ -40,7 +51,7 @@ const About = ({ icons }) => {
                   </motion.div>
                 ))}
               </Logos>
-            </Section2>
+            </Section3>
           </Paragraph>
           <ProfilePhoto src="/profile-pic.png" />
         </AboutSections>
@@ -77,7 +88,7 @@ const Paragraph = styled.div`
   justify-content: space-around;
   user-select: none;
   height: 70%;
-  width: 60%;
+  width: 50%;
 
   @media screen and (max-width: 768px) {
     font-size: medium;
@@ -94,11 +105,43 @@ const Section2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
+  @media screen and (max-width: 768px) {
+    font-size: small;
+  }
+`;
+const Section3 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  @media screen and (max-width: 768px) {
+    font-size: small;
+  }
+`;
+const ResumeButton = styled.button`
+  font-size: medium;
+  font-weight: 400;
+  padding: 0.7em 1.5em;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  & a {
+    color: black;
+    text-decoration: none;
+  }
 
   @media screen and (max-width: 768px) {
     font-size: small;
   }
 `;
+const ButtonContainer = styled.div`
+  display: flex;
+  height: 4em;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
 const Logos = styled.div`
   display: flex;
   justify-content: space-between;

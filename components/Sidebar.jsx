@@ -19,24 +19,24 @@ const Sidebar = ({ toggleMenu, setToggleMenu }) => {
       <SideBarWrapper>
         <NavLinks>
           <NavLink>
-            <Link to="home" spy={true} smooth={true}>
+            <Link to="home" spy={true} smooth={true} duration={50}>
               Home
             </Link>
           </NavLink>
           <NavLink>
-            <Link to="about" spy={true} smooth={true}>
+            <Link to="about" spy={true} smooth={true} duration={50}>
               About
             </Link>
           </NavLink>
 
           <NavLink>
-            <Link to="projects" spy={true} smooth={true}>
+            <Link to="projects" spy={true} smooth={true} duration={50}>
               Projects
             </Link>
           </NavLink>
 
           <NavLink>
-            <Link to="contact" spy={true} smooth={true}>
+            <Link to="contact" spy={true} smooth={true} duration={50}>
               <h4>Contact</h4>
             </Link>
           </NavLink>
