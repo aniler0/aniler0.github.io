@@ -12,7 +12,7 @@ import projects from "../utils/projects";
 import socialmediaicons from "../utils/socialmedia";
 
 export default function HomePage() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   return (
     <AnimatePresence exitBeforeEnter>
