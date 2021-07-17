@@ -1,12 +1,47 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { motion } from "framer-motion";
-
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 const About = ({ icons }) => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const boxVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.7,
+      },
+    },
+  };
+  const photo = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.9,
+        delay: 1,
+      },
+    },
+  };
+
   return (
     <>
       <Container id="about">
-        <AboutSections>
+        <AboutSections
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={boxVariants}
+        >
           <Paragraph>
             <Section1>
               <h1>About Me</h1>
@@ -53,7 +88,13 @@ const About = ({ icons }) => {
               </Logos>
             </Section3>
           </Paragraph>
-          <ProfilePhoto src="/profile-pic.png" />
+          <ProfilePhoto
+            src="/profile-pic.png"
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={photo}
+          />
         </AboutSections>
       </Container>
     </>
@@ -68,8 +109,9 @@ const Container = styled.section`
   align-items: center;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 `;
-const AboutSections = styled.div`
+const AboutSections = styled(motion.div)`
   display: flex;
   width: 80%;
   height: 90%;
@@ -161,7 +203,7 @@ const Logos = styled.div`
   }
 `;
 
-const ProfilePhoto = styled.img`
+const ProfilePhoto = styled(motion.img)`
   height: 60%;
   background: linear-gradient(45deg, #00e9fa, #0033ff);
   border-radius: 80%;

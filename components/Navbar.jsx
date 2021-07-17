@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
+import { MenuContext } from "../context/MenuContext";
 
-const Navbar = ({ toggleMenu, setToggleMenu }) => {
+const Navbar = () => {
   const [scrollNav, setScrollNav] = useState(false);
+  const [toggleMenu, setToggleMenu] = useContext(MenuContext);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {

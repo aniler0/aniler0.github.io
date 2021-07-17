@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import SocialMediaLinks from "./SocialMediaLinks";
 
 const Contact = ({ socialmediaicons }) => {
@@ -7,48 +9,73 @@ const Contact = ({ socialmediaicons }) => {
   const [mail, setMail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(true);
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(false);
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
 
-    const timer = setTimeout(() => {
-      setSubmitted(true);
-      setName("");
-      setMail("");
-      setMessage("");
-    }, 3000);
-
-    let data = {
-      name,
-      mail,
-      message,
-    };
-    fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
+  const boxVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.7,
+        delay: 0.7,
       },
-      body: JSON.stringify(data),
-    }).then((res) => {
-      console.log("response received");
-      if (res.status === 200) {
-        console.log("Response succeeded!");
+    },
+  };
+  const handleSubmit = (e) => {
+    if (name && mail && message !== "") {
+      e.preventDefault();
+      setSubmitted(false);
+
+      const timer = setTimeout(() => {
         setSubmitted(true);
         setName("");
         setMail("");
-        setBody("");
-      }
-    });
+        setMessage("");
+      }, 3000);
 
-    timer;
+      let data = {
+        name,
+        mail,
+        message,
+      };
+      fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }).then((res) => {
+        console.log("response received");
+        if (res.status === 200) {
+          console.log("Response succeeded!");
+          setSubmitted(true);
+          setName("");
+          setMail("");
+          setBody("");
+        }
+      });
+
+      timer;
+    }
   };
 
   return (
     <ContactContainer id="contact">
       <ContactWrapper>
-        <ContactSection>
+        <ContactSection
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={boxVariants}
+        >
           <Title>
             <h1>Contact Me</h1>
             <h4>Have a question or want to work together ?</h4>
@@ -63,6 +90,7 @@ const Contact = ({ socialmediaicons }) => {
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
+                required
               />
               <input
                 type="email"
@@ -72,6 +100,7 @@ const Contact = ({ socialmediaicons }) => {
                 onChange={(e) => {
                   setMail(e.target.value);
                 }}
+                required
               />
               <textarea
                 type="text"
@@ -81,6 +110,7 @@ const Contact = ({ socialmediaicons }) => {
                 onChange={(e) => {
                   setMessage(e.target.value);
                 }}
+                required
               />
               <Button
                 onClick={(e) => {
@@ -93,7 +123,6 @@ const Contact = ({ socialmediaicons }) => {
             </Form>
           </FormSection>
         </ContactSection>
-
         <SocialMediaLinks socialmediaicons={socialmediaicons} />
       </ContactWrapper>
       <Footer>
@@ -124,7 +153,7 @@ const ContactWrapper = styled.section`
   justify-content: center;
 `;
 
-const ContactSection = styled.section`
+const ContactSection = styled(motion.section)`
   height: 100%;
   width: 100%;
   display: flex;

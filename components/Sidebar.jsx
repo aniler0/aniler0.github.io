@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
+import { MenuContext } from "../context/MenuContext";
 
-const Sidebar = ({ toggleMenu, setToggleMenu }) => {
+const Sidebar = () => {
   const variants = {
     open: { x: "200%" },
     closed: { x: 0 },
   };
+
+  const [toggleMenu, setToggleMenu] = useContext(MenuContext);
 
   return (
     <SideBarContainer

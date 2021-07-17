@@ -12,8 +12,8 @@ import projects from "../utils/projects";
 import socialmediaicons from "../utils/socialmedia";
 
 export default function HomePage() {
-  const [toggleMenu, setToggleMenu] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
   return (
     <AnimatePresence exitBeforeEnter>
       {loading === true ? (
@@ -22,8 +22,8 @@ export default function HomePage() {
         </motion.div>
       ) : (
         <>
-          <Navbar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
-          <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+          <Navbar />
+          <Sidebar />
           <Home />
           <About icons={icons} />
           <Projects projects={projects} />

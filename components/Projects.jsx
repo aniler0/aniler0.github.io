@@ -1,10 +1,42 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Slider from "react-slick";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
 const Projects = ({ projects }) => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const boxVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.7,
+      },
+    },
+  };
+
+  const photo = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 1,
+      },
+    },
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -15,17 +47,24 @@ const Projects = ({ projects }) => {
     autoplaySpeed: 3000,
   };
 
-  useEffect(() => {
-    console.log("proje sayfası");
-  });
-
   return (
     <>
       <Container id="projects">
-        <BgImage>
-          <Image src="/bgimage.png" alt="clay" width={1000} height={600} />
+        <BgImage ref={ref} initial="hidden" animate={controls} variants={photo}>
+          <Image
+            src="/bgimage.png"
+            alt="clay"
+            width={1000}
+            height={600}
+            priority={true}
+          />
         </BgImage>
-        <ProjectSection>
+        <ProjectSection
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={boxVariants}
+        >
           <h1>My Projects</h1>
           <SlidingArea>
             <Corausel {...settings}>
@@ -83,12 +122,12 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 `;
-const BgImage = styled.div`
+const BgImage = styled(motion.div)`
   position: absolute;
   right: -14em;
   bottom: 0;
 `;
-const ProjectSection = styled.div`
+const ProjectSection = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
