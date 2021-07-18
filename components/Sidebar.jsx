@@ -10,7 +10,7 @@ const Sidebar = () => {
     closed: { x: 0 },
   };
 
-  const [toggleMenu, setToggleMenu] = useContext(MenuContext);
+  const { toggleMenu, setToggleMenu } = useContext(MenuContext);
 
   return (
     <SideBarContainer

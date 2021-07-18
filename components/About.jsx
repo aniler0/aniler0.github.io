@@ -106,7 +106,9 @@ const AboutSections = styled(motion.div)`
 
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
-    justify-content: flex-end;
+    justify-content: space-around;
+
+    height: 85%;
   }
 `;
 const Paragraph = styled.div`
@@ -194,6 +196,6 @@ const ProfilePhoto = styled.img`
   border-radius: 80%;
   padding: 8px;
   @media screen and (max-width: 768px) {
-    height: 40%;
+    height: 37%;
   }
 `;

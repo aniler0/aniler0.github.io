@@ -7,7 +7,7 @@ import { MenuContext } from "../context/MenuContext";
 
 const Navbar = () => {
   const [scrollNav, setScrollNav] = useState(false);
-  const [toggleMenu, setToggleMenu] = useContext(MenuContext);
+  const { toggleMenu, setToggleMenu } = useContext(MenuContext);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -17,7 +17,6 @@ const Navbar = () => {
 
   const isToggle = () => {
     setToggleMenu(!toggleMenu);
-    console.log(toggleMenu);
   };
   useEffect(() => {
     window.addEventListener("scroll", changeNav);

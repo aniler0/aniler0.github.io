@@ -6,8 +6,8 @@ import { MenuToggleProvider } from "../context/MenuContext";
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <GlobalStyle />
       <MenuToggleProvider>
-        <GlobalStyle />
         <Component {...pageProps} />
       </MenuToggleProvider>
     </>
