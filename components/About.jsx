@@ -14,21 +14,12 @@ const About = ({ icons }) => {
   }, [controls, inView]);
 
   const boxVariants = {
-    hidden: { opacity: 0 },
+    hidden: { y: 200, opacity: 0 },
     visible: {
+      y: 0,
       opacity: 1,
       transition: {
         duration: 1.7,
-      },
-    },
-  };
-  const photo = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1.9,
-        delay: 1,
       },
     },
   };
@@ -88,13 +79,7 @@ const About = ({ icons }) => {
               </Logos>
             </Section3>
           </Paragraph>
-          <ProfilePhoto
-            src="/profile-pic.png"
-            ref={ref}
-            initial="hidden"
-            animate={controls}
-            variants={photo}
-          />
+          <ProfilePhoto src="/profile-pic.png" />
         </AboutSections>
       </Container>
     </>
@@ -203,7 +188,7 @@ const Logos = styled.div`
   }
 `;
 
-const ProfilePhoto = styled(motion.img)`
+const ProfilePhoto = styled.img`
   height: 60%;
   background: linear-gradient(45deg, #00e9fa, #0033ff);
   border-radius: 80%;

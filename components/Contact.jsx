@@ -19,12 +19,12 @@ const Contact = ({ socialmediaicons }) => {
   }, [controls, inView]);
 
   const boxVariants = {
-    hidden: { opacity: 0 },
+    hidden: { y: 200, opacity: 0 },
     visible: {
+      y: 0,
       opacity: 1,
       transition: {
         duration: 1.7,
-        delay: 0.7,
       },
     },
   };
@@ -143,6 +143,7 @@ const ContactContainer = styled.section`
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 `;
 const ContactWrapper = styled.section`
   height: 65%;

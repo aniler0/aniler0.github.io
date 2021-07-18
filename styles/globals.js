@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 html {
   scroll-behavior: smooth;
 }
+
 *{
  font-family: 'Poppins', sans-serif;
   margin:0;

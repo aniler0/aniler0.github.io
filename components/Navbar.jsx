@@ -29,24 +29,48 @@ const Navbar = () => {
         <Title>aniler</Title>
         <NavLinks>
           <NavLink>
-            <Link to="home" spy={true} smooth={true} duration={50}>
+            <Link
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              duration={50}
+            >
               Home
             </Link>
           </NavLink>
           <NavLink>
-            <Link to="about" spy={true} smooth={true} duration={50}>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              duration={50}
+            >
               About
             </Link>
           </NavLink>
 
           <NavLink>
-            <Link to="projects" spy={true} smooth={true} duration={50}>
+            <Link
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              duration={50}
+            >
               Projects
             </Link>
           </NavLink>
 
           <NavLink>
-            <Link to="contact" spy={true} smooth={true} duration={50}>
+            <Link
+              activeClass="active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              duration={50}
+            >
               <h4>Contact</h4>
             </Link>
           </NavLink>
@@ -128,12 +152,16 @@ const NavLink = styled.li`
   display: flex;
   cursor: pointer;
   align-items: center;
-  color: #000000;
+  color: #929292;
   text-decoration: none;
   font-weight: 400;
   font-size: small;
 
   &:hover {
     color: white;
+  }
+  & a.active {
+    color: black;
+    font-weight: 500;
   }
 `;

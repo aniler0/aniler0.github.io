@@ -16,8 +16,9 @@ const Projects = ({ projects }) => {
   }, [controls, inView]);
 
   const boxVariants = {
-    hidden: { opacity: 0 },
+    hidden: { y: 200, opacity: 0 },
     visible: {
+      y: 0,
       opacity: 1,
       transition: {
         duration: 1.7,
