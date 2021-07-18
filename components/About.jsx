@@ -108,7 +108,7 @@ const AboutSections = styled(motion.div)`
     flex-direction: column-reverse;
     justify-content: space-around;
 
-    height: 85%;
+    height: 95%;
   }
 `;
 const Paragraph = styled.div`
@@ -121,7 +121,9 @@ const Paragraph = styled.div`
 
   @media screen and (max-width: 768px) {
     font-size: medium;
-    width: 80%;
+    width: 90%;
+    height: 70%;
+    justify-content: space-evenly;
   }
 `;
 const Section1 = styled.div`
@@ -196,6 +198,6 @@ const ProfilePhoto = styled.img`
   border-radius: 80%;
   padding: 8px;
   @media screen and (max-width: 768px) {
-    height: 37%;
+    height: 27%;
   }
 `;

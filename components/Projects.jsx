@@ -134,7 +134,7 @@ const ProjectSection = styled(motion.div)`
   justify-content: space-evenly;
   align-items: flex-start;
   width: 75%;
-  height: 50%;
+  height: 70%;
 
   & h1 {
     font-size: 1.4em;
@@ -143,7 +143,7 @@ const ProjectSection = styled(motion.div)`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 90%;
+    height: 70%;
     & h1 {
       font-size: 1.2em;
     }

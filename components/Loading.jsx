@@ -81,6 +81,16 @@ const LoaderWrapper = styled(motion.div)`
     bottom: 47%;
     left: 43%;
   }
+
+  @media screen and (max-width: 765px) {
+    width: 270px;
+    height: 270px;
+
+    & h1 {
+      bottom: 47%;
+      left: 40%;
+    }
+  }
 `;
 const Loader = styled(motion.div)`
   &::before {
