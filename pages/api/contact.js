@@ -1,7 +1,8 @@
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (req, res) {
-    require('dotenv').config()
+    const dotenv = require('dotenv')
+    dotenv.config();
     const PASSWORD = process.env.password
 
     let nodemailer = require('nodemailer')
