@@ -10,7 +10,7 @@ export default function (req, res) {
 
     const transporter = nodemailer.createTransport({
 
-        service: "outlook",
+        service: "hotmail",
         secureConnection: false,
         auth: {
             user: 'anilerbot@hotmail.com',
