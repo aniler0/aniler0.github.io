@@ -10,14 +10,17 @@ export default function (req, res) {
 
     const transporter = nodemailer.createTransport({
 
-        service: "hotmail",
+        host: "smtp-mail.outlook.com",
         secureConnection: false,
+        port: 587,
+        tls: {
+            ciphers: 'SSLv3'
+        },
         auth: {
             user: 'anilerbot@hotmail.com',
             pass: process.env.PASSWORD
-        }, tls: {
-            ciphers: 'SSLv3'
         }
+
     });
     console.log(req.body)
     const mailData = {
