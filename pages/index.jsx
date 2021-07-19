@@ -10,27 +10,34 @@ import Sidebar from "../components/Sidebar";
 import icons from "../utils/icons";
 import projects from "../utils/projects";
 import socialmediaicons from "../utils/socialmedia";
+import Head from "next/head";
 
 export default function HomePage() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <AnimatePresence exitBeforeEnter>
-      {loading === true ? (
-        <motion.div key="loader">
-          <Loading setLoading={setLoading} />
-        </motion.div>
-      ) : (
-        <>
-          <Navbar />
-          <Sidebar />
-          <Home />
-          <About icons={icons} />
-          <Projects projects={projects} />
-          <Contact socialmediaicons={socialmediaicons} />
-        </>
-      )}
-    </AnimatePresence>
+    <>
+      <Head>
+        <title>Anıl Er</title>
+      </Head>
+
+      <AnimatePresence exitBeforeEnter>
+        {loading === true ? (
+          <motion.div key="loader">
+            <Loading setLoading={setLoading} />
+          </motion.div>
+        ) : (
+          <>
+            <Navbar />
+            <Sidebar />
+            <Home />
+            <About icons={icons} />
+            <Projects projects={projects} />
+            <Contact socialmediaicons={socialmediaicons} />
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 

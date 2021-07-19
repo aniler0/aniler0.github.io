@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import { BiWorld } from "react-icons/bi";
 
 const Projects = ({ projects }) => {
   const controls = useAnimation();
@@ -97,7 +98,7 @@ const Projects = ({ projects }) => {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Live
+                          <LinkImage alt="live-icon" />
                         </a>
                       </ImageArea>
                     </ProjectContainer>
@@ -187,6 +188,13 @@ const ProjectContainer = styled.div`
     flex-direction: column;
     justify-content: center;
   }
+`;
+
+const LinkImage = styled(BiWorld)`
+  margin-top: 10px;
+  width: 1.5vmax;
+  height: 1.5vmax;
+  color: black;
 `;
 const Wrap = styled.div`
   display: flex;

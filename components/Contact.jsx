@@ -199,9 +199,9 @@ const Form = styled.form`
     border-radius: 9px;
     padding: 1em;
     background-color: #f3f3f3;
-    width: 40em;
+    width: 30rem;
     height: 5rem;
-    max-width: 40em;
+    max-width: 45em;
   }
 
   @media screen and (max-width: 768px) {
@@ -209,7 +209,7 @@ const Form = styled.form`
       width: 13em;
     }
     & textarea {
-      width: 20em;
+      width: auto;
       height: 4rem;
       max-width: 20em;
     }
@@ -219,6 +219,7 @@ const Button = styled.button`
   padding: 0.5em 1em;
   margin-top: 1em;
   border: none;
+  -webkit-appearance: none;
   & h4 {
     font-weight: 500;
     font-size: small;

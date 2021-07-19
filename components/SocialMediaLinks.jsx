@@ -17,6 +17,7 @@ const SocialMediaLinks = ({ socialmediaicons }) => {
                 width={30}
                 height={30}
                 layout="intrinsic"
+                priority={true}
               />
             </a>
           );
