@@ -139,6 +139,7 @@ const ProjectSection = styled(motion.div)`
 
   & h1 {
     font-size: 1.4em;
+    z-index: 999;
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
