@@ -15,16 +15,9 @@ const projects = [
         liveProject: 'https://todo-aniler0.vercel.app',
         projectImage: '/projectimages/todoapp.png'
     },
+    
     {
         id: '3',
-        projectName: 'Facebook Clone',
-        projectDetails: 'This is almost a real Facebook page. I have made this app with Firebase and ReactJS. You can send a post.',
-        githubLink: 'https://github.com/aniler0/fb-clone',
-        liveProject: 'https://facebook-clone-a3200.web.app/',
-        projectImage: '/projectimages/facebookclone.png'
-    },
-    {
-        id: '4',
         projectName: 'Cat App',
         projectDetails: 'This website provides a lot of cat things. You can get random cat images or information of cat breeds.',
         githubLink: 'https://github.com/aniler0/catapp',
@@ -32,7 +25,7 @@ const projects = [
         projectImage: '/projectimages/catapp.png'
     },
     {
-        id: '5',
+        id: '4',
         projectName: 'Weather Forecast App',
         projectDetails: 'You can get weather forecast what country you want',
         githubLink: 'https://github.com/aniler0/weatherforecast',
@@ -40,7 +33,7 @@ const projects = [
         projectImage: '/projectimages/weatherapp.png'
     },
     {
-        id: '6',
+        id: '5',
         projectName: 'Space Game',
         projectDetails: 'In this project, I have tried my ReactJS and algorithm skills with making this simple game. ',
         githubLink: 'https://github.com/aniler0/spacegame',
