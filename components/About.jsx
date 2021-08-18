@@ -49,8 +49,11 @@ const About = ({ icons }) => {
               <h1>Resume</h1>
 
               <ButtonContainer>
-                <a href="/Resume.pdf" download>
-                  <ResumeButton>Click to download</ResumeButton>
+                <a href="/Resume(English).pdf" target="_blank">
+                  <ResumeButton>English</ResumeButton>
+                </a>
+                <a href="/Resume(Turkish).pdf" target="_blank">
+                  <ResumeButton>Turkish</ResumeButton>
                 </a>
               </ButtonContainer>
             </Section2>
@@ -167,9 +170,13 @@ const ResumeButton = styled.button`
 const ButtonContainer = styled.div`
   display: flex;
   height: 4em;
+  justify-content: space-around;
+  align-items: center;
+  width: 45%;
   @media screen and (max-width: 768px) {
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    width: 60%;
   }
 `;
 
