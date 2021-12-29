@@ -157,7 +157,7 @@ const NavLink = styled.li`
   font-size: small;
 
   &:hover {
-    color: white;
+    color: #606060;
   }
   & a.active {
     color: black;

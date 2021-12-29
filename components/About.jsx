@@ -74,7 +74,6 @@ const About = ({ icons }) => {
                       alt={icon.alt}
                       width={60}
                       height={60}
-                      priority={true}
                       layout="intrinsic"
                     />
                   </motion.div>
@@ -165,14 +164,16 @@ const ResumeButton = styled.button`
 
   @media screen and (max-width: 768px) {
     font-size: small;
+    margin: 5px;
+    padding: 0.3em 1em;
   }
 `;
 const ButtonContainer = styled.div`
   display: flex;
   height: 4em;
-  justify-content: space-around;
-  align-items: center;
-  width: 45%;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 220px;
   @media screen and (max-width: 768px) {
     justify-content: space-around;
     align-items: center;

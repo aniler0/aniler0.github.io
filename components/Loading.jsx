@@ -20,7 +20,7 @@ const Loading = ({ setLoading }) => {
 
       transition: {
         ease: [0.6, 0.01, -0.05, 0.95],
-        duration: 3.5,
+        duration: 1,
       },
     },
     exit: {

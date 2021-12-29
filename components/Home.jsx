@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-scroll";
 import styled from "styled-components";
 
@@ -41,6 +41,7 @@ const Hero = () => {
       },
     },
   };
+  const [videoLoading, setVideoLoading] = useState(true);
 
   return (
     <Section id="home">
@@ -54,7 +55,10 @@ const Hero = () => {
           playsInline
           variants={bgvideo}
           initial="hidden"
-          animate="visible"
+          animate={!videoLoading ? "visible" : ""}
+          onLoadedData={() => {
+            setVideoLoading(false);
+          }}
         />
         <Main>
           <Header variants={text} initial="hidden" animate="visible">
