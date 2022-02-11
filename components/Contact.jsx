@@ -19,9 +19,8 @@ const Contact = ({ socialmediaicons }) => {
   }, [controls, inView]);
 
   const boxVariants = {
-    hidden: { y: 200, opacity: 0 },
+    hidden: { opacity: 0 },
     visible: {
-      y: 0,
       opacity: 1,
       transition: {
         duration: 1.7,

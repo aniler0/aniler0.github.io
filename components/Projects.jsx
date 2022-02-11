@@ -17,24 +17,11 @@ const Projects = ({ projects }) => {
   }, [controls, inView]);
 
   const boxVariants = {
-    hidden: { y: 200, opacity: 0 },
+    hidden: { opacity: 0 },
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1.7,
-      },
-    },
-  };
-
-  const photo = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      scale: 1,
       opacity: 1,
       transition: {
         duration: 2,
-        delay: 1,
       },
     },
   };
@@ -52,15 +39,6 @@ const Projects = ({ projects }) => {
   return (
     <>
       <Container id="projects">
-        <BgImage ref={ref} initial="hidden" animate={controls} variants={photo}>
-          <Image
-            src="/bgimage.png"
-            alt="clay"
-            width={1000}
-            height={600}
-            priority={true}
-          />
-        </BgImage>
         <ProjectSection
           ref={ref}
           initial="hidden"

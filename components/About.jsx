@@ -14,12 +14,11 @@ const About = ({ icons }) => {
   }, [controls, inView]);
 
   const boxVariants = {
-    hidden: { y: 200, opacity: 0 },
+    hidden: { opacity: 0 },
     visible: {
-      y: 0,
       opacity: 1,
       transition: {
-        duration: 1.7,
+        duration: 2,
       },
     },
   };
@@ -81,7 +80,7 @@ const About = ({ icons }) => {
               </Logos>
             </Section3>
           </Paragraph>
-          <ProfilePhoto src="/profile-pic.png" />
+          <ProfilePhoto src="/profile-pic.webp" />
         </AboutSections>
       </Container>
     </>
@@ -106,7 +105,7 @@ const AboutSections = styled(motion.div)`
   align-items: center;
   justify-content: space-around;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1126px) {
     flex-direction: column-reverse;
     justify-content: space-around;
 
@@ -121,7 +120,7 @@ const Paragraph = styled.div`
   height: 70%;
   width: 50%;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1126px) {
     font-size: medium;
     width: 90%;
     height: 70%;
@@ -129,7 +128,7 @@ const Paragraph = styled.div`
   }
 `;
 const Section1 = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1126px) {
     font-size: small;
     margin-top: 20px;
   }
@@ -138,7 +137,7 @@ const Section2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1126px) {
     font-size: small;
   }
 `;
@@ -146,7 +145,7 @@ const Section3 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1126px) {
     font-size: small;
   }
 `;
@@ -157,46 +156,39 @@ const ResumeButton = styled.button`
   border: none;
   border-radius: 9px;
   cursor: pointer;
+  margin: 0 2em 0 0;
   & a {
     color: black;
     text-decoration: none;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1126px) {
     font-size: small;
-    margin: 5px;
     padding: 0.3em 1em;
   }
 `;
 const ButtonContainer = styled.div`
-  display: flex;
-  height: 4em;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 220px;
-  @media screen and (max-width: 768px) {
-    justify-content: space-around;
-    align-items: center;
-    width: 60%;
-  }
+  padding: 1em 0;
 `;
 
 const Logos = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  width: 70%;
 
-  width: 80%;
-
-  @media screen and (max-width: 768px) {
+  & div {
+    margin: 10px;
+    & img {
+      width: 60%;
+      height: auto;
+    }
+  }
+  @media screen and (max-width: 1126px) {
     width: 100%;
     align-items: center;
     flex-wrap: wrap;
-
-    & img {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
   }
 `;
 
@@ -205,7 +197,7 @@ const ProfilePhoto = styled.img`
   background: linear-gradient(45deg, #00e9fa, #0033ff);
   border-radius: 80%;
   padding: 8px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1126px) {
     height: 27%;
   }
 `;

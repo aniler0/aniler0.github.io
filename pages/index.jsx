@@ -10,14 +10,11 @@ import icons from "../utils/icons";
 const About = dynamic(() => import("../components/About"));
 const Contact = dynamic(() => import("../components/Contact"));
 const Home = dynamic(() => import("../components/Home"));
-const Loading = dynamic(() => import("../components/Loading"));
 const Navbar = dynamic(() => import("../components/Navbar"));
 const Projects = dynamic(() => import("../components/Projects"));
 const Sidebar = dynamic(() => import("../components/Sidebar"));
 
 export default function HomePage() {
-  const [loading, setLoading] = useState(true);
-
   return (
     <>
       <Head>
@@ -29,20 +26,14 @@ export default function HomePage() {
       </Head>
 
       <AnimatePresence exitBeforeEnter>
-        {loading === true ? (
-          <motion.div key="loader">
-            <Loading setLoading={setLoading} />
-          </motion.div>
-        ) : (
-          <>
-            <Navbar />
-            <Sidebar />
-            <Home />
-            <About icons={icons} />
-            <Projects projects={projects} />
-            <Contact socialmediaicons={socialmediaicons} />
-          </>
-        )}
+        <>
+          <Navbar />
+          <Sidebar />
+          <Home />
+          <About icons={icons} />
+          <Projects projects={projects} />
+          <Contact socialmediaicons={socialmediaicons} />
+        </>
       </AnimatePresence>
     </>
   );
