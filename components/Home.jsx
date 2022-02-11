@@ -8,15 +8,15 @@ const Hero = () => {
     hidden: {
       opacity: 0,
       transition: {
-        duration: 4,
-        delay: 1.2,
+        duration: 3,
+        delay: 0.5,
         ease: [0.83, 0, 0.17, 1],
       },
     },
     visible: {
       opacity: 1,
       transition: {
-        duration: 4,
+        duration: 3,
         delay: 1.2,
         ease: [0.83, 0, 0.17, 1],
       },
